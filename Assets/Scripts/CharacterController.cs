@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CharacterController : MonoBehaviour
     public float sprintSpeed = 20.0f;
     public float maxSprint = 5.0f;
     float sprintTimer;
+    float maxSprintTimer;
 
     float rotation = 0.0f;
     float camRotation = 0.0f;
@@ -18,6 +20,13 @@ public class CharacterController : MonoBehaviour
 
     GameObject cam;
     Rigidbody myRigidBody;
+
+    private Image StaminaBar = null;
+    private CanvasGroup sliderCanvasGroup = null;
+    private float staminaDrain = 0.5f;
+    private float staminaRegen = 0.5f;
+    public bool hasRegenerated = true;
+
      void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -52,6 +61,30 @@ public class CharacterController : MonoBehaviour
         camRotation = Mathf.Clamp(camRotation, -50.0f, 50.0f);
 
 
- 
+        if (Input.GetKey(KeyCode.LeftShift) == false)
+        {
+            if (sprintTimer <= maxSprintTimer - 0.01)
+            {
+                sprintTimer += staminaRegen * Time.deltaTime;
+            }
+            if (sprintTimer >= maxSprintTimer)
+                hasRegenerated = true;
+
+        }
+
+
+      
+        void UpdateStamina(int value)
+        {
+            StaminaBar.fillAmount = sprintTimer / Time.deltaTime;
+            if (value == 0)
+            {
+                sliderCanvasGroup.alpha = 0;
+            }
+            else
+            {
+                sliderCanvasGroup.alpha = 1;
+            }
+        }   
     }
 }
