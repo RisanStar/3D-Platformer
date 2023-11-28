@@ -46,18 +46,33 @@ public class PlayerMovement : MonoBehaviour
                 doubleJump = false;
             }
         }
+         void FixedUpdate()
+        {
+            jump();
+            move();
+        }
 
-        
-        
-            Anim.SetBool("Jump", IsGrounded());
-        
-            
+         void jump()
+        {
+            if (IsGrounded())
+            {
+                Anim.SetBool("Jump", true);
+            }
+            else
+                Anim.SetBool("Jump", false);
+        }
 
-
-
-
+        void move()
+        {
+            Anim.SetFloat("Vertical", verticalInput);
+            Anim.SetFloat("Horizontal",horizontalInput);
+        }
     }
-
+    
+        
+   
+        
+   
     bool IsGrounded()
     {
         return Physics.CheckSphere(groundCheck.position, 1f, ground);
