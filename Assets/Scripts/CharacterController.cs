@@ -20,6 +20,7 @@ public class CharacterController : MonoBehaviour
 
     GameObject cam;
     Rigidbody myRigidBody;
+    
 
     private Image StaminaBar = null;
     private CanvasGroup sliderCanvasGroup = null;
@@ -85,6 +86,10 @@ public class CharacterController : MonoBehaviour
             {
                 sliderCanvasGroup.alpha = 1;
             }
-        }   
+        }
+
+      
+            
     }
+
 }

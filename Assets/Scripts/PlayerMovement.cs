@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask ground;
+
+    Animator Anim;
 
     // Start is called before the first frame update
     void Start()
@@ -42,12 +45,16 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector3(rb.velocity.x, jumpForce * 1.1f, rb.velocity.z);
                 doubleJump = false;
             }
-        }      
-           
+        }
 
+        
+        
+            Anim.SetBool("Jump", IsGrounded());
+        
             
 
-     
+
+
 
     }
 
@@ -55,4 +62,9 @@ public class PlayerMovement : MonoBehaviour
     {
         return Physics.CheckSphere(groundCheck.position, 1f, ground);
     }
+
+
+        
 }
+    
+
