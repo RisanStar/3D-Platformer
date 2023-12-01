@@ -7,7 +7,7 @@ public class PlayerLife : MonoBehaviour
 {
     private void Update()
     {
-        if (transform.position.y < -2f)
+        if (transform.position.y < -20f)
         {
             Die();
         }
@@ -25,9 +25,8 @@ public class PlayerLife : MonoBehaviour
     }
     void Die()
     {
-        GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
-        GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<PlayerAnim>().enabled = false;
         Invoke(nameof(ReloadLevel), 1.3f);
     }
     void ReloadLevel()

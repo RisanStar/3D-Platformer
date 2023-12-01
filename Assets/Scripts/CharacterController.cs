@@ -22,9 +22,9 @@ public class CharacterController : MonoBehaviour
     Rigidbody myRigidBody;
     
 
-    private Image StaminaBar = null;
-    private CanvasGroup sliderCanvasGroup = null;
-    private float staminaDrain = 0.5f;
+   // private Image StaminaBar = null;
+   // private CanvasGroup sliderCanvasGroup = null;
+   // private float staminaDrain = 0.5f;
     private float staminaRegen = 0.5f;
     public bool hasRegenerated = true;
 
@@ -58,7 +58,7 @@ public class CharacterController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f));
 
         camRotation = camRotation + Input.GetAxis("Mouse Y") * camRotationSpeed;
-        cam.transform.localRotation = Quaternion.Euler(new Vector3(camRotation, 0.0f, 0.0f));
+        //cam.transform.localRotation = Quaternion.Euler(new Vector3(camRotation, 0.0f, 0.0f));
         camRotation = Mathf.Clamp(camRotation, -50.0f, 50.0f);
 
 
@@ -75,7 +75,7 @@ public class CharacterController : MonoBehaviour
 
 
       
-        void UpdateStamina(int value)
+       /* void UpdateStamina(int value)
         {
             StaminaBar.fillAmount = sprintTimer / Time.deltaTime;
             if (value == 0)
@@ -88,7 +88,7 @@ public class CharacterController : MonoBehaviour
             }
         }
 
-      
+      */
             
     }
 
