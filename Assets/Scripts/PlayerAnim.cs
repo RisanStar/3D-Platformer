@@ -10,7 +10,7 @@ public class PlayerAnim : MonoBehaviour
     public bool grounded;
     public float anima;
     private bool doubleJump = false;
-    private 
+    [SerializeField] AudioSource jumpSound;
     void Start()
     {
         this.rb = GetComponent<Rigidbody>();
@@ -29,6 +29,7 @@ public class PlayerAnim : MonoBehaviour
         {
             Debug.Log("Jumped");
             this.rb.AddForce(Vector3.up * 6, ForceMode.Impulse);
+            jumpSound.Play();
         }
         else
         {
