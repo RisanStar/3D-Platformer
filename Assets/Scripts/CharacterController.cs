@@ -8,7 +8,7 @@ public class CharacterController : MonoBehaviour
 {
     public float maxSpeed;
     public float normalSpeed = 10.0f;
-    public float sprintSpeed = 20.0f;
+    public float sprintSpeed = 25.0f;
     public float maxSprint = 5.0f;
     float sprintTimer;
     float maxSprintTimer;

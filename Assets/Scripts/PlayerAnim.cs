@@ -11,6 +11,7 @@ public class PlayerAnim : MonoBehaviour
     public float anima;
     private bool doubleJump = false;
     [SerializeField] AudioSource jumpSound;
+   
     void Start()
     {
         this.rb = GetComponent<Rigidbody>();
@@ -54,7 +55,7 @@ public class PlayerAnim : MonoBehaviour
         }
          this.anim.SetBool("Jump", !this.grounded);
          this.anim.SetBool("Fall", !this.grounded);
-        
+       
             
 
     }
